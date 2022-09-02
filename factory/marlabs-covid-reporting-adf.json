@@ -1,0 +1,9 @@
+{
+	"name": "marlabs-covid-reporting-adf",
+	"location": "southindia",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "4e4eedec-4651-4a8c-b511-c270b5a1929d",
+		"tenantId": "fca0e8a8-7a87-439e-ba0f-0ad3057fcb09"
+	}
+}
