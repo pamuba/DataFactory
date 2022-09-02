@@ -19,7 +19,7 @@
 				"          {<!DOCTYPE html>} as string",
 				"     ),",
 				"     allowSchemaDrift: true,",
-				"     validateSchema: true,",
+				"     validateSchema: false,",
 				"     inferDriftedColumnTypes: true,",
 				"     ignoreNoFilesFound: false,",
 				"     modifiedAfter: (toTimestamp(1662076800916L))) ~> CasesAndDeathsSource"
