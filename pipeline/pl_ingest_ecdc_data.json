@@ -52,7 +52,11 @@
 						"type": "DatasetReference",
 						"parameters": {
 							"relativeURL": {
-								"value": "@pipeline().parameters.sourceRelateURL",
+								"value": "@pipeline().parameters.sourceRelativeURL",
+								"type": "Expression"
+							},
+							"baseURL": {
+								"value": "@pipeline().parameters.sourceBaseURL",
 								"type": "Expression"
 							}
 						}
@@ -73,10 +77,13 @@
 			}
 		],
 		"parameters": {
-			"sourceRelateURL": {
+			"sourceRelativeURL": {
 				"type": "string"
 			},
 			"sinkFileName": {
+				"type": "string"
+			},
+			"sourceBaseURL": {
 				"type": "string"
 			}
 		},
