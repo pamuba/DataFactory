@@ -34,7 +34,7 @@
 				"     validateSchema: false,",
 				"     inferDriftedColumnTypes: true,",
 				"     ignoreNoFilesFound: false) ~> CasesAndDeathsSource",
-				"CasesAndDeathsSource filter(ERROR_FUNCTION('')) ~> FilterEuropeOnly"
+				"CasesAndDeathsSource filter(continent == 'Europe'  &&  not(isNull(country_code))) ~> FilterEuropeOnly"
 			]
 		}
 	}
