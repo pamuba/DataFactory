@@ -126,7 +126,7 @@
 			"properties": {
 				"activities": [
 					{
-						"name": "Data flow1",
+						"name": "Process_hospital_admissions",
 						"type": "ExecuteDataFlow",
 						"dependsOn": [],
 						"policy": {
