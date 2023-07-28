@@ -10,6 +10,12 @@
 					"name": "FilterEuropeOnly"
 				},
 				{
+					"name": "SelectOnlyRequiredColumns"
+				},
+				{
+					"name": "PivotUncount"
+				},
+				{
 					"name": "CasesAndDeathsSource"
 				}
 			],
@@ -27,7 +33,29 @@
 				"     ),",
 				"     order: 0,",
 				"     allowSchemaDrift: true) ~> CasesAndDeathsSource",
-				"CasesAndDeathsSource filter(continent == 'Europe' && not(isNull(country_code))) ~> FilterEuropeOnly"
+				"CasesAndDeathsSource filter(continent == 'Europe' && not(isNull(country_code))) ~> FilterEuropeOnly",
+				"FilterEuropeOnly select(mapColumn(",
+				"          country,",
+				"          country_code,",
+				"          continent,",
+				"          population,",
+				"          indicator,",
+				"          daily_count,",
+				"          date,",
+				"          rate_14_day,",
+				"          source",
+				"     ),",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> SelectOnlyRequiredColumns",
+				"SelectOnlyRequiredColumns pivot(groupBy(country,",
+				"          country_code,",
+				"          population,",
+				"          source,",
+				"          {} = ERROR_FUNCTION('')),",
+				"     pivotBy(indicator, ['confirm cases', 'deaths']),",
+				"     count = sum(daily_count),",
+				"     columnNaming: '$N$V',",
+				"     lateral: true) ~> PivotUncount"
 			]
 		}
 	}
