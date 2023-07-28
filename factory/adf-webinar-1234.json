@@ -1,0 +1,9 @@
+{
+	"name": "adf-webinar-1234",
+	"location": "eastus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "b61620da-c011-4af5-a82b-e64e191ab8dd",
+		"tenantId": "82ff841a-af8d-4fe2-885c-dca564a5761e"
+	}
+}
