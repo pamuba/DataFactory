@@ -1,0 +1,34 @@
+{
+	"name": "df_transform_cases_deaths_copy1",
+	"properties": {
+		"type": "Flowlet",
+		"typeProperties": {
+			"sources": [],
+			"sinks": [],
+			"transformations": [
+				{
+					"name": "FilterEuropeOnly"
+				},
+				{
+					"name": "CasesAndDeathsSource"
+				}
+			],
+			"scriptLines": [
+				"input(output(",
+				"          country as string,",
+				"          country_code as string,",
+				"          continent as string,",
+				"          population as integer,",
+				"          indicator as string,",
+				"          daily_count as integer,",
+				"          date as date,",
+				"          rate_14_day as double,",
+				"          source as string",
+				"     ),",
+				"     order: 0,",
+				"     allowSchemaDrift: true) ~> CasesAndDeathsSource",
+				"CasesAndDeathsSource filter(continent == 'Europe' && not(isNull(country_code))) ~> FilterEuropeOnly"
+			]
+		}
+	}
+}
